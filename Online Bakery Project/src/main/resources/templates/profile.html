@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/thankyou.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> Bakery </a>
+    
+        <nav class="navbar">
+            <a class="nav-link" th:href="@{/}" href="#">Home</a>
+            <a class="nav-link" th:href="@{/shop}" href="#">Shop</a>
+            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+            <a class="nav-link"  href="#">Contact Us</a>
+        </nav>
+    
+    </header>
+    <div class="space"></div>
+    <div class=content>
+        <div class="wrapper-1">
+          <div class="wrapper-2">
+            <h1>User Details</h1>
+            
+            
+    <p>User's firstName:</p>
+  <div sec:authentication="principal.firstName"></div>
+    <p>User's lastName:</p>
+    <div sec:authentication="principal.lastName"></div>
+    <p>User's email:</p>
+    <div sec:authentication="principal.email"></div>
+    <p>User role:</p>
+    <div sec:authentication="principal.authorities"></div>
+           
+          </div>
+          <div class="footer-like">
+            <p>Any Queries?
+             <a > Contact Us</a>
+            </p>
+          </div>
+      </div>
+      </div>
+      
+      
+      
+      <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive cake website design</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- header section start page -->
+
+<header class="header">
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> Bakery </a>
+
+    <nav class="navbar">
+        <a class="nav-link" th:href="@{/}" href="#">Home</a>
+
+        <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/profile}" href="#">Profile</a>
+        <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/admin}" th:if="${#authentication.getPrincipal().getUsername() == 'admin@gmail.com'}">Admin</a>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">Contact Us</a>
+               <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+        <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+        
+    </nav>
+
+ 
+
+
+</header>
+ 
+<!-- home section start -->
+    
+<section class="home" id="home">
+    <div class="slides-container">
+
+        <div class="slide active">
+            <div class="content">
+                <span>Welcome to the Bakery</span>
+                <h3>upto 50% off</h3>
+                <a href="#" class="btn" th:href="@{/shop}">Shop Now</a>
+</div>
+            
+            <div class="img">
+                <img src="img/home-img-1.png" alt="">
+            </div>
+        </div>
+
+        
+</section>
+
+
+<section class="banner-container">
+
+ 
+
+</section>
+
+
+<!-- category start  -->
+
+
+
+<!-- products section -->
+<!-- about section start -->
+<div class="heading">
+    <h1>About us</h1>
+    </div>
+
+<section class="about">
+    <div class="img">
+         <img src="img/about-img.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <span>welcome to our products</span>
+        <h3>Cake-A-Licious products</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        incididunt ut labore et dolore farhan aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+        in voluptate </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+         farhan aliqua. Ut enim ad minim veniam, quis</p>
+        <a href="#" class="btn">read more</a>
+    </div>
+</section>
+             
+<section class="info-container">
+
+    <div class="info">
+        <img src="img/icons-1.png" alt="">
+        <div class="content">
+            <h3>fast delivery</h3>
+            <span>within 30 minutes</span>
+        </div>
+    </div>
+
+    <div class="info">
+        <img src="img/icons-2.png" alt="">
+        <div class="content">
+            <h3>24 / 7 available</h3>
+            <span>call us anytime</span>
+        </div>
+    </div>
+
+    <div class="info">
+        <img src="img/icons-3.png" alt="">
+        <div class="content">
+            <h3>easy payments</h3>
+            <span>cash or credit</span>
+        </div>
+    </div>
+
+</section>
+
+<div class="heading">
+    <h1>Contact us</h1>
+</div>
+
+<section class="contact">
+    <div class="icons-container">
+
+        <div class="icons">
+            <i class="fas fa-phone"></i>
+            <h3>our number</h3>
+            <p>+91-9856237412</p>
+            <p>+91-8562314795</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-envelope"></i>
+            <h3>our email</h3>
+            <p>abcd@gmail.com</p>
+            <p>xyzemail@gmail.com</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>our address</h3>
+            <p>Pune, India - 404101</p>
+        </div>
+
+    </div>
+
+<div class="space"></div>
+<!-- footer section start -->
+
+
+<section class="credit">created by Yukta Agrawal || all rights reserved</section>
+
+
+
+    <!-- custom js file link -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

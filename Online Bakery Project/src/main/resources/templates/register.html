@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/logincss.css">
+</head>
+<body>
+        <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> Bakery </a>
+    
+        <nav class="navbar">
+            <a class="nav-link" th:href="@{/}" href="#">Home</a>
+            <a class="nav-link" th:href="@{/shop}" href="#">Shop</a>
+            
+            
+            
+       
+        </nav>
+        </header>
+<div class="container" id="container">
+
+	<div class="form-container sign-in-container">
+		<form th:action="@{/register}" th:object="${user}" method="post">
+			<h1>Sign in</h1>
+			<input type="text" name="firstName" id="firstName" required placeholder="First Name" />
+			<input type="text" name="lastName" id="lastName" required placeholder="Last Name" />
+            <input type="email" required minlength="6" placeholder="Email" name="email" id="email" aria-describedby="emailHelp"/>
+            <input type="password" required placeholder="Password" name="password"
+            id="password"/>
+			<a th:href="@{/forgotpassword}">Forgot your password?</a>
+			<button type="submit" value="Register" >Sign Up</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			
+            <div class="overlay-panel overlay-right">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn"><a href="./login.html"
+                    th:href="@{/login}">Login here</a></button>
+
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

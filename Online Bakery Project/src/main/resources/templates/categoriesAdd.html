@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/addcategories.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> Bakery </a>
+    
+        <nav class="navbar">
+            <a class="nav-link" th:href="@{/admin}" href="#">Admin Home</a> 
+            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+        </nav>
+    
+    </header>
+    <div class="space"></div>
+    <div class="container" id="container">
+
+        <div class="form-container sign-in-container">
+            <form th:action="@{/admin/categories/add}" method="post" th:object="${category}">
+                <h1>Please Add category</h1>
+                <p> </p>
+                <input type="hidden" name="id"  th:field="*{id}">
+                <input type="text" required th:field="*{name}" name="name" id="name"  placeholder="Enter name" />
+                
+                <button type="submit" >Submit</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1 >Hey!</h1>
+                    <p>Please add new categories to our bakery</p>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
